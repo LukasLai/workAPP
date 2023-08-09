@@ -6,6 +6,7 @@ import (
 	"os"
 	"strings"
 	"workAPP/inventoryparse"
+	"workAPP/reviewlibrary"
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
@@ -41,21 +42,27 @@ func main() {
 
 		// 生成新的按鈕並添加到 reviewBtnVbox 中
 		button1 := widget.NewButton("感謝", func() {
-			text += "謝謝您的評論~\n"
+			text += reviewlibrary.ThankBtn()
 			reviewData.Set(text)
+		})
 
-		})
 		button2 := widget.NewButton("聲音", func() {
-			text += "遇到聲音上的問題時，我們櫃台旁都有提供免費的耳塞供住客使用喔\n"
+			text += reviewlibrary.NoiceBtn()
 			reviewData.Set(text)
 		})
+
 		button3 := widget.NewButton("異味", func() {
-			text += "如遇到房內有異味，請馬上告知櫃台的服務人員我們都會馬上為您處理~\n"
+			text += reviewlibrary.BadsmellBtn()
 			reviewData.Set(text)
 		})
 
 		button4 := widget.NewButton("濕氣/霉味", func() {
-			text += "建議冷氣可以調低一些, 濕氣會有所改善喔~\n"
+			text += reviewlibrary.MoistureBtn()
+			reviewData.Set(text)
+		})
+
+		button5 := widget.NewButton("開心Emoji", func() {
+			text += reviewlibrary.HappyemojiBtn()
 			reviewData.Set(text)
 		})
 
@@ -77,6 +84,7 @@ func main() {
 		reviewBtnVbox.Add(button2)
 		reviewBtnVbox.Add(button3)
 		reviewBtnVbox.Add(button4)
+		reviewBtnVbox.Add(button5)
 		reviewBtnVbox.Add(layout.NewSpacer())
 		reviewBtnVbox.Add(clearBtn)
 		reviewBtnVbox.Add(copyBtn)
