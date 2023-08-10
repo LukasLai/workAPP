@@ -25,87 +25,151 @@ func main() {
 	w.Resize(fyne.NewSize(700, 500))
 	a.Settings().SetTheme(theme.DarkTheme())
 
-	//output := widget.NewLabel("")
-	//output.Wrapping = fyne.TextWrapWord
-	//output.Alignment = fyne.TextAlignLeading
-
-	// 初始化 reviewBtnVbox
-	reviewBtnVbox := container.NewVBox(layout.NewSpacer())
+	// 初始化 functionalBtnVbox
+	functionalBtnVbox := container.NewVBox(layout.NewSpacer())
 	text := ""
 
-	reviewData := binding.NewString()
-	reviewLabel := widget.NewLabelWithData(reviewData)
+	outputData := binding.NewString()
+	outputLabel := widget.NewLabelWithData(outputData)
 
+	//評論區按鈕
 	reviewBtn := widget.NewButton("評論", func() {
-		// 清空 reviewBtnVbox 中的內容
-		reviewBtnVbox.Objects = []fyne.CanvasObject{}
+		// 清空 functionalBtnVbox 中的內容
+		functionalBtnVbox.Objects = []fyne.CanvasObject{}
+		// 清空text內容
+		text = ""
+		outputData.Set(text)
 
-		// 生成新的按鈕並添加到 reviewBtnVbox 中
+		// 生成新的按鈕並添加到 functionalBtnVbox 中
 		button1 := widget.NewButton("感謝", func() {
 			text += reviewlibrary.ThankBtn()
-			reviewData.Set(text)
+			outputData.Set(text)
 		})
 
 		button2 := widget.NewButton("聲音", func() {
 			text += reviewlibrary.NoiceBtn()
-			reviewData.Set(text)
+			outputData.Set(text)
 		})
 
 		button3 := widget.NewButton("異味", func() {
 			text += reviewlibrary.BadsmellBtn()
-			reviewData.Set(text)
+			outputData.Set(text)
 		})
 
 		button4 := widget.NewButton("濕氣/霉味", func() {
 			text += reviewlibrary.MoistureBtn()
-			reviewData.Set(text)
+			outputData.Set(text)
 		})
 
 		button5 := widget.NewButton("開心Emoji", func() {
 			text += reviewlibrary.HappyemojiBtn()
-			reviewData.Set(text)
+			outputData.Set(text)
+		})
+
+		button6 := widget.NewButton("傷心Emoji", func() {
+			text += reviewlibrary.SademojiBtn()
+			outputData.Set(text)
 		})
 
 		clearBtn := widget.NewButton("重製", func() {
 			text = ""
-			reviewData.Set(text)
+			outputData.Set(text)
 		})
 
 		copyBtn := container.NewHBox(
 			layout.NewSpacer(),
 			widget.NewButtonWithIcon("Copy複製", theme.ContentCopyIcon(), func() {
-				if content, err := reviewData.Get(); err == nil {
+				if content, err := outputData.Get(); err == nil {
 					w.Clipboard().SetContent(content)
 				}
 			}),
 		)
 
-		reviewBtnVbox.Add(button1)
-		reviewBtnVbox.Add(button2)
-		reviewBtnVbox.Add(button3)
-		reviewBtnVbox.Add(button4)
-		reviewBtnVbox.Add(button5)
-		reviewBtnVbox.Add(layout.NewSpacer())
-		reviewBtnVbox.Add(clearBtn)
-		reviewBtnVbox.Add(copyBtn)
+		functionalBtnVbox.Add(button1)
+		functionalBtnVbox.Add(button2)
+		functionalBtnVbox.Add(button3)
+		functionalBtnVbox.Add(button4)
+		functionalBtnVbox.Add(button5)
+		functionalBtnVbox.Add(button6)
+		functionalBtnVbox.Add(layout.NewSpacer())
+		functionalBtnVbox.Add(clearBtn)
+		functionalBtnVbox.Add(copyBtn)
 
-		// 刷新 reviewBtnVbox 使新的按鈕生效
-		reviewBtnVbox.Refresh()
+		// 刷新 functionalBtnVbox 使新的按鈕生效
+		functionalBtnVbox.Refresh()
 	})
 
 	inventoryBtn := widget.NewButton("點貨", func() {
-		reviewBtnVbox.Objects = []fyne.CanvasObject{}
+		functionalBtnVbox.Objects = []fyne.CanvasObject{}
 		invenWindow(a, w)
 		text = ""
-		reviewData.Set(text)
+		outputData.Set(text)
 	})
-	other := canvas.NewText("更新中", color.White)
+
+	//日常回覆按鈕
+	replyBtn := widget.NewButton("日常回覆", func() {
+		// 清空 functionalBtnVbox 中的內容
+		functionalBtnVbox.Objects = []fyne.CanvasObject{}
+		// 清空text內容
+		text = ""
+		outputData.Set(text)
+
+		// 生成新的按鈕並添加到 functionalBtnVbox 中
+		checkinTimeBtn := widget.NewButton("詢問入住(平)", func() {
+			text = reviewlibrary.CheckinTimebtn()
+			outputData.Set(text)
+		})
+
+		checkinTimeBtn2 := widget.NewButton("詢問入住(假)", func() {
+			text = reviewlibrary.CheckinTimebtn2()
+			outputData.Set(text)
+		})
+
+		uploadidBtn := widget.NewButton("上傳證件", func() {
+			text = reviewlibrary.Uploadidbtn()
+			outputData.Set(text)
+		})
+
+		breakfastBtn := widget.NewButton("早餐", func() {
+			text = reviewlibrary.Breakfastbtn()
+			outputData.Set(text)
+		})
+
+		clearBtn := widget.NewButton("重製", func() {
+			text = ""
+			outputData.Set(text)
+		})
+
+		copyBtn := container.NewHBox(
+			layout.NewSpacer(),
+			widget.NewButtonWithIcon("Copy複製", theme.ContentCopyIcon(), func() {
+				if content, err := outputData.Get(); err == nil {
+					w.Clipboard().SetContent(content)
+				}
+			}),
+		)
+
+		functionalBtnVbox.Add(checkinTimeBtn)
+		functionalBtnVbox.Add(checkinTimeBtn2)
+		functionalBtnVbox.Add(uploadidBtn)
+		functionalBtnVbox.Add(breakfastBtn)
+		functionalBtnVbox.Add(layout.NewSpacer())
+		functionalBtnVbox.Add(clearBtn)
+		functionalBtnVbox.Add(copyBtn)
+
+		// 刷新 functionalBtnVbox 使新的按鈕生效
+		functionalBtnVbox.Refresh()
+	})
+
 	other2 := canvas.NewText("更新中", color.White)
-	sidebarVbox := container.NewGridWithRows(4, reviewBtn, inventoryBtn, other, other2)
-	outputVbox := container.NewVBox(layout.NewSpacer(), reviewLabel, layout.NewSpacer(), layout.NewSpacer())
+	//最左邊的垂直欄位
+	sidebarVbox := container.NewGridWithRows(4, reviewBtn, inventoryBtn, replyBtn, other2)
+	//整體UI的水平欄位
+	outputVbox := container.NewVBox(layout.NewSpacer(), outputLabel, layout.NewSpacer(), layout.NewSpacer())
+
 	content := container.NewHBox(
 		sidebarVbox,
-		reviewBtnVbox,
+		functionalBtnVbox,
 		outputVbox,
 	)
 

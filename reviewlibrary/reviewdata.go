@@ -73,3 +73,15 @@ func HappyemojiBtn() string {
 	}
 	return text
 }
+
+func SademojiBtn() string {
+	text := ""
+	randomNumber := rand.Intn(3) + 1
+	switch randomNumber {
+	case 1:
+		text = "(〒︿〒)\n"
+	case 2:
+		text = ":((\n"
+	}
+	return text
+}
