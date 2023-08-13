@@ -5,6 +5,7 @@
 1.UI介面: 這個 APP 的 UI 使用 Fyne 框架來建立，它提供了視覺化的使用者介面，讓使用者可以通過按鈕操作來執行不同的功能。
 
 2.評論功能: 使用者可以通過評論按鈕來選擇不同的評論選項，包括「感謝」、「聲音」、「異味」等，每次選擇會在 UI 上顯示相應的評論內容。
+  並使用隨機參數，使每次產出的內容都不盡相同。
 
 3.點貨清單功能: 使用者可以通過點貨按鈕進入點貨視窗，在點貨視窗中，使用者可以輸入內容，然後點擊「Sent」按鈕，系統會將內容解析並顯示在清單中，同時提供複製功能，以便將清單內容複製到剪貼板中。
 
@@ -18,6 +19,7 @@ Key functionalities include:
 1.User Interface: The UI is built using the Fyne library, offering a visual interface where users can perform actions through buttons.
 
 2.Review Feature: Users can choose from various review options such as "Thanks," "Sound," "Bad smell," etc. The selected review content is displayed on the UI.
+  Also using random seed, to make the output different everytime we use.
 
 3.Order List Feature: Users can enter content in the order window, click the "Sent" button, and the system parses the content to display in a list. 
   The app provides a copy feature to copy the list to the clipboard.
