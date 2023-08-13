@@ -25,3 +25,7 @@ Key functionalities include:
 4.Daily Response Feature: Users can select different response options such as "Check-in time," "Upload ID," "Breakfast," etc. The selected response content is displayed on the UI.
 
 5.Clean and Clear: The app's UI layout is intuitive, allowing users to easily choose functions and view or copy related content.
+
+![1691892816780](https://github.com/LukasLai/workAPP/assets/133328740/e7cb7360-96ec-4888-b6a5-2aa742158cdc)
+![1691892883176](https://github.com/LukasLai/workAPP/assets/133328740/cadb430d-fa3e-48d2-8b40-ee08e36d1a9c)
+
