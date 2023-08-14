@@ -18,10 +18,10 @@ func DefineInventory() {
 	Centralmap["大垃圾袋"] = 7
 	Centralmap["小垃圾袋"] = 10
 
-	Centralmap["套房咖啡包"] = 0.5
-	Centralmap["套房餅乾"] = 0.5
-	Centralmap["套房牙刷"] = 0.5
-	Centralmap["套房棉花棒"] = 0.5
+	Centralmap["咖啡包"] = 0.5
+	Centralmap["餅乾"] = 0.5
+	Centralmap["牙刷"] = 1
+	Centralmap["棉花棒"] = 0.5
 	Centralmap["化妝棉"] = 2
 	Centralmap["綠茶"] = 1
 

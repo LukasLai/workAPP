@@ -65,19 +65,17 @@ func UpdateInventory(name string, num string, vendor1, vendor2, vendor3 *[]strin
 		Calculate.Orderinventory(name, num, vendor2)
 	case "小垃圾袋":
 		Calculate.Orderinventory(name, num, vendor2)
-	case "套房咖啡包":
+	case "咖啡包":
 		Calculate.Orderinventory(name, num, vendor3)
-	case "套房餅乾":
+	case "餅乾":
 		Calculate.Orderinventory(name, num, vendor3)
-	case "套房牙刷":
+	case "牙刷":
 		Calculate.Orderinventory(name, num, vendor3)
-	case "套房棉花棒":
+	case "棉花棒":
 		Calculate.Orderinventory(name, num, vendor3)
 	case "化妝棉":
 		Calculate.Orderinventory(name, num, vendor3)
 	case "綠茶":
-		Calculate.Orderinventory(name, num, vendor3)
-	case "髮圈":
 		Calculate.Orderinventory(name, num, vendor3)
 	}
 }
