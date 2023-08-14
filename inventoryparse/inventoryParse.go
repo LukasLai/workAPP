@@ -9,9 +9,9 @@ import (
 
 func ParseInvenroty(str string) ([]string, []string, []string) {
 	//初始化各廠商叫貨表輸出文字
-	vendor1 := []string{""}
-	vendor2 := []string{""}
-	vendor3 := []string{""}
+	vendor1 := []string{"您好,我們需要"}
+	vendor2 := []string{"您好,我們需要"}
+	vendor3 := []string{"您好,我們需要"}
 
 	//如有不合規的逗號"，"則更換成和規逗號","
 	str = strings.Replace(str, "，", ",", -1)
@@ -36,8 +36,6 @@ func ParseInvenroty(str string) ([]string, []string, []string) {
 	}
 
 	fmt.Println("檔案執行成功")
-
-	fmt.Println("結果 ↧ 趕快複製 7秒後檔案自動關閉")
 	fmt.Println()
 	fmt.Println(vendor1)
 	fmt.Println()

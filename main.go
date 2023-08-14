@@ -71,6 +71,26 @@ func main() {
 			outputData.Set(text)
 		})
 
+		button7 := widget.NewButton("邀請來玩", func() {
+			text += reviewlibrary.InviteToPlayBtn()
+			outputData.Set(text)
+		})
+
+		button8 := widget.NewButton("人員稱讚", func() {
+			text += reviewlibrary.StaffComplimentBtn()
+			outputData.Set(text)
+		})
+
+		button9 := widget.NewButton("交通稱讚", func() {
+			text += reviewlibrary.TrafficComplimentBtn()
+			outputData.Set(text)
+		})
+
+		button10 := widget.NewButton("環境稱讚", func() {
+			text += reviewlibrary.EnvironmentComplimentBtn()
+			outputData.Set(text)
+		})
+
 		clearBtn := widget.NewButton("重製", func() {
 			text = ""
 			outputData.Set(text)
@@ -91,6 +111,10 @@ func main() {
 		functionalBtnVbox.Add(button4)
 		functionalBtnVbox.Add(button5)
 		functionalBtnVbox.Add(button6)
+		functionalBtnVbox.Add(button7)
+		functionalBtnVbox.Add(button8)
+		functionalBtnVbox.Add(button9)
+		functionalBtnVbox.Add(button10)
 		functionalBtnVbox.Add(layout.NewSpacer())
 		functionalBtnVbox.Add(clearBtn)
 		functionalBtnVbox.Add(copyBtn)
@@ -182,12 +206,6 @@ func invenWindow(a fyne.App, w fyne.Window) {
 	newWindow := a.NewWindow("點貨視窗")
 	newWindow.Resize(fyne.NewSize(700, 500))
 
-	/*topicText := widget.NewLabel("點貨")
-	closeBtn := widget.NewButton("關閉", func() { newWindow.Close() })
-
-	content := container.NewBorder(topicText, closeBtn, nil, nil, nil)
-	*/
-	//------------------------------------------------------------------------
 	txtBoundV1 := binding.NewString()
 	txtBoundV2 := binding.NewString()
 	txtBoundV3 := binding.NewString()
@@ -234,9 +252,9 @@ func invenWindow(a fyne.App, w fyne.Window) {
 		fmt.Println("sent按鈕觸發")
 		v1, v2, v3 := inventoryparse.ParseInvenroty(entryMultiLine.Text)
 
-		txtBoundV1.Set(strings.Join(v1, ","))
-		txtBoundV2.Set(strings.Join(v2, ","))
-		txtBoundV3.Set(strings.Join(v3, ","))
+		txtBoundV1.Set(strings.Join(v1, " "))
+		txtBoundV2.Set(strings.Join(v2, " "))
+		txtBoundV3.Set(strings.Join(v3, " "))
 	})
 	vendor1 := canvas.NewText("升威:", color.White)
 	vendor2 := canvas.NewText("安美潔:", color.White)
